@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn JavaScript with Ray</title>
+    <title>JavaScript Cheat Sheet</title>
     <link rel="stylesheet" href="jslearn.css">
     <script type="text/javascript" src="jslearn.js" defer></script>
 </head>
@@ -15,11 +15,13 @@
             <a href="#get-started">Getting Started</a>
             <a href="#variables">Variables</a>
             <a href="#numbers">Numbers</a>
+            <a href="#strings">Strings</a>
             <a href="#dom-man">DOM Manipulation</a>
             <a href="#functions">Functions</a>
             <a href="#objects">Objects</a>
             <a href="#loops">Loops</a>
             <a href="./RockPaperScissors/rps.html">Rock, Paper, Scissors</a>
+            <a href="./ToDo/todo.html">To-Do List</a>
         </nav>
     </header>
     <main class="wrapper">
@@ -27,29 +29,32 @@
             <h1>Getting Started</h1>
             <h2>Script Tag</h2>
             <p>Just like you need to link your CSS file to your html file, you need to link you JS file to your html for it to show in your page. For CSS, you type "link" then it will fill out "rel='stylesheet' href='yourcss.css'". although for JS, its a script tag below. This script tag usually goes in the head or at the bottom of the body of your html file.</p>
-            <div class="code">
-                &lt;script type="text/javascript" src="<code>yourJSfile</code>.js"&gt;&lt;/script&gt;
-            </div>
+            <pre class="code">
+&lt;script&gt; type="text/javascript" src="<var>yourJSfile</var>.js" &lt;/script&gt; 
+            </pre>
+            <xmp class="code">
+                <script>hello there</script>
+            </xmp>
         </section>
-        <section id="variables">        <!--Variables-->
+        <!------------------------------- Variables ---------------------------------->
+        <section id="variables">        
             <h1>Variables</h1>
             <h2>Declaration</h2>
             <p>Just like you need to link your CSS file to your html file, you need to link you JS file to your html for it to show in your page. For CSS, you type "link" then it will fill out "rel='stylesheet' href='yourcss.css'". although for JS, its a script tag below. This script tag usually goes in the header of your html file.</p>
-            <div class="code">
-                <code>let</code>     firstName = "ray";<br>
-                <code>var</code>     age = 23;<br>
-                <code>const</code>   lastName = "Roble";<br>
-            </div>
+            <pre class="code">
+<var>let</var> firstName = "ray";
+<var>var</var> age = 23;
+<var>const</var> lastName = "Roble";
+            </pre>
             <p>
                 Lets break this down;<br>
-                <code>var, let, </code>and <code>const</code> are all keywords. The keywords declares the variable (box) which are = firstName, lastName, and age. The equals "=" indicates what's in the variable (box). <br><br>
+                <var>var, let, </var>and <var>const</var> are all keywords. The keywords declares the variable (box) which are = firstName, lastName, and age. The equals "=" indicates what's in the variable (box). <br><br>
             </p>
             <ul>
-                <li>Use <code>let</code> to declare variables to keep things simple, <code>var</code> is "old school"</li>
+                <li>Use <var>let</var> to declare variables to keep things simple, <var>var</var> is "old school"</li>
                 <li>A variable can be a number, a string (letters), or a phrase or paragraph - strings must be in quotations ""</li>
-                <li><code>const</code> values CANNOT be changed</li>
+                <li><var>const</var> values CANNOT be changed</li>
             </ul> 
-
             <h2>Naming Variables</h2>
             <p>
                 Naming a variable can be tricky sometimes. There are certain rules to naming a variable: <br>
@@ -58,44 +63,154 @@
                     <li>The first character must NOT be a digit</li>
                 </ul>
             </p>
+            <h2>How to use variables</h2>
+            <p>After you have declared the variable, you can use by storing new values into it, or performing arithmetic or concatenating strings</p>
+            <pre class="code">
+<i>// you can perform mathematic equations with variables</i>
+<var>let</var> x = 10;
+<var>let</var> y = 20;
+<var>let</var> a = x * y; <i>//the value of variable 'a' will be the product of 'x' and 'y'</i>
+
+<i>// you can also concatenate strings string variable and store the 
+// concatenated value in a new variable</i>
+<var>let</var> fullName = firstName + lasName;
+            </pre>
+            <p><var>const</var> means "constant" and should never chagne</p>
+            <pre class="code">
+<var>const</var> lastName = "Roble";
+<i>// trying to change the value in this <var>const</var> variable will lead to an error</i>
+            </pre>
         </section>
-        <section id="numbers">      <!--Numbers-->
-            <h1 id="headNum">Numbers</h1>
+        <!------------------------------- Numbers ---------------------------------------->
+        <section id="numbers">      
+            <h1 id="headNum">Numbers & Arithmetic</h1>
             <h2>Arithmetic Operators</h2>
             <p>Arithmetic operators perform arithmetic on numbers (literals or variables).</p>
-            <div class="code">
-                <table>
-                    <tr>
-                        <td>Addition </td><td>+</td>
-                    </tr>
-                    <tr>
-                        <td>Subtraction </td><td>-</td>
-                    </tr>
-                    <tr>
-                        <td>Multiplication</td><td>*</td>
-                    </tr>
-                    <tr>
-                        <td>Exponentation </td><td>**</td>
-                    </tr>
-                    <tr>
-                        <td>Division </td><td>/</td>
-                    </tr>
-                    <tr>
-                        <td>Modulus </td><td>%</td>
-                    </tr>
-                    <tr>
-                        <td>Increment </td><td>++</td>
-                    </tr>
-                    <tr>
-                        <td>Decrement</td><td>--</td>
-                    </tr>
-                </table>
-            </div>
-            <div id="arithmetic">
+            <pre class="code">
+<i>// operators and description</i>
++   addition
+-   subtraction
+*   multiplication
+**  exponentation
+/   division
+%   modulus (remainder)
+++  increment
+--  decrement
+            </pre>
+            <h2>Operator Precedence</h2>
+            <p>It describes the order in which operations are performed in an arithmetic expression</p>
+            <pre class="code">
+<var>let</var> x = 2 + 3 * 5;
+<i>// the result will be 17 because PEMDAS</i>
 
-            </div>
+<var>let</var> x = (2 + 3) * 5;
+<i>// the result will be 25</i>
+            </pre>
+            <h2>Special Numbers</h2>
+            <ul>
+                <li>Infinity & -Infinity</li>
+                <ul><li>not mathematically sound</li></ul>
+                <li>NaN (not a number)</li>
+            </ul>
+            <pre class="code">
+<i>// you get NaN when you perform a numeric operation that don't yield a meaningful result</i> 
+<var>let</var> x = 0 / 0;
+<var>let</var> y = Infinity - Infinity;
+<i>// -> NaN</i>
+            </pre>
+            <h2>Data Types</h2>
+            <ul>
+                <li>List of JS Data Types</li>
+                <ul>
+                    <li>Number</li>
+                    <li>String</li>
+                    <li>Array</li>
+                    <li>Object</li>
+                    <li>Boolean</li>
+                    <li>Null</li>
+                    <li>Undefined</li>
+                </ul>
+            </ul>
+            <pre class="code">
+<i>// When adding numbers and strings in JS, it will change the integer into a string</i>
+<var>let</var> x = 5 + "Volvo";
+<i>// -> 5Volvo</i>
+<var>let</var> x = 5 * "Volvo";
+<i>// -> NaN (not a number)</i>
+            </pre>
+            <h2>Logical Operators</h2>
+            <pre class="code">
+&&  and 
+||  or
+!=  not
+
+console.log(true && true);
+<i>// -> true</i>
+
+console.log(true && false);
+<i>// -> false</i>
+
+console.log(false && false);
+<i>// -> false</i>
+
+console.log(true || false);
+<i>// -> true</i>
+
+console.log(true || true);
+<i>// -> true</i>
+
+console.log(false || false);
+<i>// -> false</i>
+
+console.log(true != false);
+<i>// -> true</i>
+
+console.log(true != true);
+<i>// -> false</i>
+
+console.log(false != false);
+<i>// -> true</i>
+
+            </pre>
         </section>
-        <!------------------    DOM Manipulation    ----------------------->
+        <!---------------------------------- Strings  ---------------------------------->
+        <section id="strings">
+            <h1>Strings</h1>
+            <ul>
+                <li>Used to represent text</li>
+                <li>Written in single or double quotes</li>
+                <ul>
+                    <li>"Hello World"</li>
+                    <li>'Hi Earth'</li>
+                </ul>
+            </ul>
+            <pre class="code">
+<i>// anything can be written in a string and can be saved in a variable</i>
+<var>let</var> myStr = 'two worlds';
+
+<i>// concatinate strings together with the addition operator '+'</i>
+myStr += ", one family";
+<i>// -> "two worlds, one family</i>
+
+<i>// the character "\" (backshlash) means its an escape character
+// indicates the next character is special with meaning
+// \n means new line; \t means tab
+</i>
+"Trust your heart, let fate decide\nTo guide these lives we see"
+<i>//->   Trust your heart, let fate decide
+//->   To guide these lives we see</i>
+            </pre>
+            <h2>Template Literals</h2>
+            <ul>
+                <li>Represented by backticks ``</li>
+                <li>They can embed other values</li>
+            </ul>
+            <pre class="code">
+<var>let</var> myStr = `half of 100 is <purple>${100 / 2}</purple>`;
+<i>// -> half of 100 is 50</i>
+            </pre>
+        </section>
+        <!------------------------------------    DOM Manipulation    ----------------------->
         <section id="dom-man">
             <h1>Dom Manipulation</h1>
             <!-- <h2>The 14 must know DOM manipulation techniques</h2> -->
@@ -216,6 +331,7 @@
             <audio data-key="75" src=""></audio>
             <audio data-key="76" src=""></audio>
         </section> -->
+        <!--------------------------- Objects Section --------------------------------->
         <section id="objects">
             <h1>Object Literals</h1>
             <h2>What are Object Literals</h2>
@@ -226,7 +342,7 @@
             </ul>
             <div class="code">
                 <p>
-                    <code>let</code> myObject = {<br>
+                    <var>let</var> myObject = {<br>
                     stringObj: 'yourName',<br>
                     numObj: 23,<br>
                     boolObj: false <br>
@@ -283,7 +399,7 @@
                 </p>
             </div>
         </section>
-
+<!---------------------------------------- Loops Section ------------------------>
         <section id="loops">
             <h1>Loops</h1>
             <ul>
@@ -301,39 +417,36 @@
                 <li>Syntax:</li>
                 <ul><li>for (initialiser; condition; increment){ <br>code; <br>}</li></ul>
             </ul>
-            <div class="code">
-                <p>
-                    <i>// print each number from 1 to 10</i> <br>
-                    for (<code>let</code> num = 1; num <= 10; num++){ <br>
-                        console.log(num); <br>    
-                    } <br> <br>
-                    <i>// print all even numbers from 0 to 20 all-inclusive</i><br>
-                    for (<code>let</code> i = 0; i <= 21; i += 2){ <br>
-                        console.log(i);<br>
-                    } <br> <br>
-                    <i>// print all multiple of 5 from 1 to 20</i><br>
-                    for (<code>let</code> i = 1; i <= 20; i++){  <br>
-                        if(i % 5 == 0){ <br>
-                            console.log(i);<br>
-                        } <br>
-                    }
-                </p>
-            </div>
+            <pre class="code">
+                
+<i>// print each number from 1 to 10</i> 
+for (<var>let</var> num = 1; num <= 10; num++){ 
+    console.log(num);  
+} 
+<i>// print all even numbers from 0 to 20 all-inclusive</i>
+for (<var>let</var> i = 0; i <= 21; i += 2){ 
+    console.log(i);
+} 
+<i>// print all multiple of 5 from 1 to 20</i>
+for (<var>let</var> i = 1; i <= 20; i++){  
+    if(i % 5 == 0){ 
+        console.log(i);
+    } 
+}
+            </pre> 
 
             <h2>Looping Over Arrays</h2>
             <ul>
                 <li>to loop over an array, start at index 0 and continue looping to until the last index or(-1)</li>
             </ul>
-            <div class="code">
-                <p>
-                    <i>// given the array;</i> <br>
-                    <code>let</code> animals = ["cat", "dog", "bird", "hamster", "fish"]; <br> <br>
-                    <i>// for loop to print contents of array</i> <br>
-                    for (let i = 0; i < animals.<code>length</code>; i++){ <br>
-                        console.log(animals[<code>i</code>])
-                    }
-                </p>
-            </div>
+            <pre class="code">
+<i>// given the array;</i> <br>
+<code>let</code> animals = ["cat", "dog", "bird", "hamster", "fish"]; <br> <br>
+<i>// for loop to print contents of array</i> <br>
+for (let i = 0; i < animals.<code>length</code>; i++){ <br>
+    console.log(animals[<code>i</code>])
+} 
+            </pre>
 
             <h2>For Of loop</h2>
             <ul>
@@ -358,16 +471,16 @@
                 <li>same syntax ay for of but "in"</li>
                 <li>only return the keys in the property</li>
             </ul>
-            <div class="code">
-                <i>// given the object, iterate through it</i> <br>
-                <code>const</code> testScores = {ray: 10, jay: 15, kay: 12}; <br>
-                <i>// print each property in the object testScores</i> <br>
-                <code>for</code> (<code>let</code> x <code>in</code> testScores){ <br>
-                console.log(x);} <br><br>
-                <i>// lets also get the values for each property</i> <br>
-                <code>for</code> (<code>let</code> x <code>in</code> testScores){ <br>
-                console.log(x, " scored: ", testScores[x]);} <i>// pulls the key of the property</i>
-            </div>
+            <pre class="code">
+<i>// given the object, iterate through it</i> <br>
+<code>const</code> testScores = {ray: 10, jay: 15, kay: 12}; <br>
+<i>// print each property in the object testScores</i> <br>
+<code>for</code> (<code>let</code> x <code>in</code> testScores){ <br>
+console.log(x);} <br><br>
+<i>// lets also get the values for each property</i> <br>
+<code>for</code> (<code>let</code> x <code>in</code> testScores){ <br>
+console.log(x, " scored: ", testScores[x]);} <i>// pulls the key of the property</i>
+            </pre>
 
             <h2>While Loops</h2>
             <ul>

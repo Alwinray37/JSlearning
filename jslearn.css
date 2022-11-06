@@ -61,12 +61,8 @@ main .code{
     padding: 10px;
     position: relative;
     margin: 20px;
-    width: 700px;
-}
-code{
-    font-size: 14px;
-    color: limegreen;
-    
+    min-width: 700px;
+    max-width: fit-content;
 }
 main ul{
     margin: 0 20px 20px;
@@ -79,7 +75,9 @@ main section{
 #numbers .code table{
     border-spacing: 20px;
 }
-
+var{
+    color: rgb(0, 194, 0);
+}
 i{
     color: blue;
 }

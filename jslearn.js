@@ -62,11 +62,6 @@
 
 // numbers and arithmetic ************************************
 
-// add two numbers together
-    const arithmetic = document.getElementById('arithmetic');
-    arithmetic.insertAdjacentHTML("afterend","<div class='code' id='add'>1 + 2 = </div>");
-    document.querySelector("#add").append(1+2);
-
 // Functions    *************************************
 
 // Built in Functions

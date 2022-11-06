@@ -19,17 +19,21 @@ let getCompChoice = () =>  {
     }
 }
 
-// declaring variables
+// initializing variables
 let win;
 let score = 0;
 let round = 0;
+let rnd = document.getElementById('rnd');
 
 // function that plays one round of RPS
 function playRound(userChoice) {
     let compChoice = getCompChoice();
     let roundResult = result(userChoice, compChoice);
     console.log(`You chose ${userChoice}, computer chose ${compChoice}, result: ${roundResult}`)
+    rnd.append(`${round + 1}`)
 };
+
+// function for the user choice
 let result = (userChoice, compChoice) => {
     let result = 'undecided';
     // check for tie
@@ -53,21 +57,34 @@ let result = (userChoice, compChoice) => {
 
 // Set event handlers
 let setHandlers = () => {
-    document.getElementById('rock').onclick = function () {
-      playRound('rock');
-    };
-    document.getElementById('paper').onclick = function () {
-      playRound('paper');
-    };
-    document.getElementById('scissors').onclick = function () {
-      playRound('scissors');
-    };
+
+document.getElementById('rock').onclick = function () {
+    if(round < 5){
+        playRound('rock');
+    }
+    else{
+        rnd.style.display = "none";
+    }
+};
+document.getElementById('paper').onclick = function () {
+    if(round < 5){
+        playRound('paper');
+    }
+    else{
+        rnd.style.display = "none";
+    }
+};
+document.getElementById('scissors').onclick = function () {
+    if(round < 5){
+        playRound('scissors');
+    }
+    else{
+        rnd.style.display = "none";
+    }
+};
 };
 
 const main = () => {
     setHandlers();
 }
 main();
-
-
-
