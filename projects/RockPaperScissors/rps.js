@@ -24,15 +24,24 @@ let win;
 let playerScore = 0;
 let compScore = 0;
 let round = 1;
-const rnd = document.getElementById('rnd');
-const rpsGame = document.getElementsByClassName("rps-game");
+const rnd = document.querySelector('#rnd');
+const rpsGame = document.querySelector(".rps-game");
+const playerScr = document.querySelector('#playerScr');
+const compScr = document.querySelector('#compScr');
+const resBox = document.querySelector('#resultBox');
+const modal = document.querySelector('.modal')
+const modalP = document.querySelector('#modal-title')
 
 // function that plays one round of RPS
 function playRound(userChoice) {
     let compChoice = getCompChoice();
     let roundResult = result(userChoice, compChoice);
-    console.log(`You chose ${userChoice}, computer chose ${compChoice}, result: ${roundResult}`);
+    let x = document.createElement('div');
+    x.innerText = `You chose ${userChoice}, computer chose ${compChoice}, result: ${roundResult}\n`
+    resBox.append(x);
     rnd.innerHTML =`Round: ${round}`;
+    playerScr.innerHTML = `${playerScore}`;
+    compScr.innerHTML = `${compScore}`;
 };
 
 // function for the user choice
@@ -75,44 +84,63 @@ let result = (userChoice, compChoice) => {
 // Set event handlers
 let setHandlers = () => {
 
-document.getElementById('rock').onclick = function () {
-    if(compScore < 2){
-        playRound('rock');
-    }
-    else{
-       endGame();
-    }
-};
-document.getElementById('paper').onclick = function () {
-    if(compScore < 2){
-        playRound('paper');
-    }
-    else{
+    document.getElementById('rock').onclick = function () {
+        if(compScore < 2 && playerScore < 2){
+            playRound('rock');
+        }
+        else{
         endGame();
-    }
-};
-document.getElementById('scissors').onclick = function () {
-    if(compScore < 2){
-        playRound('scissors');
-    }
-    else{
-        endGame();
-    }
-};
+        }
+    };
+    document.getElementById('paper').onclick = function () {
+        if(compScore < 2 && playerScore < 2){
+            playRound('paper');
+        }
+        else{
+            endGame();
+        }
+    };
+    document.getElementById('scissors').onclick = function () {
+        if(compScore < 2 && playerScore < 2){
+            playRound('scissors');
+        }
+        else{
+            endGame();
+        }
+    };
 };
 
 // Function when game ends
 let endGame =() => {
     rpsGame.style.display = 'none';
     if(playerScore == 2){
-        alert("Congrats! You Win!");
+        modalP.innerText ="Congrats! You Win!";
     }else{
-        alert("Sorry you lost :(");
+        modalP.innerText = "Sorry you lost :(";
     }
+    setTimeout(restart(), 1000) ;
 };
+
+// function to restart
+let restart = () =>{
+    modal.style.display = 'flex';
+    
+
+    let reset = document.querySelector('#reset');
+    reset.addEventListener('click', e => {
+        modal.style.display = 'none';
+        rpsGame.style.display = 'flex';
+        resBox.innerHTML = '';
+        playerScore = 0;
+        compScore = 0;
+        round = 0;
+        rnd.innerHTML =`Round: ${round}`;
+        playerScr.innerHTML = `${playerScore}`;
+        compScr.innerHTML = `${compScore}`;
+    })
+}
 
 const main = () => {
     setHandlers();
-    rpsGame.style.cssText = 'color: red;';
 }
 main();
